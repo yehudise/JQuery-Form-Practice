@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Part Two JQuery</title>
+  </head>
+  <body>
+    <h1><b>Movies and Ratings</b></h1>
+    <form action="Movies and Ratings">
+      Title:
+      <!-- i dont know why my minlength is not working -->
+      <input
+        id="Movie"
+        type="text"
+        minlength="2"
+      />
+      Rating:
+      <input
+        id="Rating"
+        type="number"
+        min="0"
+        max="10"
+      />
+      <input
+        id="submitButton"
+        type="button"
+        value="Submit"
+      />
+    </form>
+    <div id="ratingResults"></div>
+    <div>
+      <label>Sort by:</label>
+      <select id="sortType">
+        <option value="titleAsc">
+          Title (A-Z)
+        </option>
+        <option value="titleDesc">
+          Title (Z-A)
+        </option>
+        <option value="ratingAsc">
+          Rating (Low to High)
+        </option>
+        <option value="ratingDesc">
+          Rating (High to Low)
+        </option>
+      </select>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+      $("#submitButton").on("click", function () {
+        let Movie = $("#Movie").val();
+        let Rating = $("#Rating")
+          .val()
+          .toString();
+
+        let removeButton = $("<button>")
+          .text("Remove")
+          .click(function () {
+            $(this).parent().remove();
+          });
+
+        $("#ratingResults").append(
+          $("<p>")
+            .text(Movie + " " + Rating)
+            .append(removeButton)
+        );
+      });
+    </script>
+  </body>
+</html>
+
+<!-- //First Step $("#ratingResults").append( // "
+<p>" + // Movie + // Rating + // "</p>
+" // ); 
+and was not able to do the second half of further study -->
